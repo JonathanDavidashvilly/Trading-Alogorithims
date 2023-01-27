@@ -1,0 +1,17 @@
+import MetaTrader4
+
+def create_stop_loss(symbol, stop_loss_price):
+    # Connect to MetaTrader4
+    mt4 = MetaTrader4.connect()
+    # Set the stop loss for the specified symbol
+    mt4.order_set_stop_loss(symbol, stop_loss_price)
+    # Disconnect from MetaTrader4
+    mt4.disconnect()
+
+def enter_trade(symbol, trade_type, volume, take_profit, stop_loss):
+    # Connect to MetaTrader4
+    mt4 = MetaTrader4.connect()
+    # Enter a trade for the specified symbol
+    mt4.order_send(symbol, trade_type, volume, take_profit, stop_loss)
+    # Disconnect from MetaTrader4
+    mt4.disconnect()
